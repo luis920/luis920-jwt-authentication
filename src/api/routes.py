@@ -45,6 +45,14 @@ def login():
     
     access_token = create_access_token(identity=user.id)
     return jsonify(access_token=access_token), 200
+#______________________________________________________________________
+# Ruta privada
+@api.route("/profile", methods=["GET"])
+@jwt_required()
+def protected():
+   
+    current_user = get_jwt_identity()
+    return jsonify(logged_in_as=current_user), 200
 
 # crear un nuevo usuario
 @api.route('/register', methods=['POST'])
@@ -58,7 +66,7 @@ def register():
     email = data.get('email')
     password = data.get('password')
 
-    if any(field is None for field in [first_name, last_name, birth_date,email,password]):
+    if None in [first_name, last_name, birth_date, email, password]:
         return jsonify({"msg": "All fields are required"}), 400
 
     if User.query.filter_by(email=email).first():
@@ -67,7 +75,7 @@ def register():
        body = json.loads(request.data)
        new_user= User(
            first_name = body["first_name"],
-           last_name = body["first_name"],
+           last_name = body["last_name"],
            birth_date = body["birth_date"],
            email = body["email"] ,
            password = body["password"],

@@ -9,40 +9,69 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			createUser : async () => {
-				const userData = {
-					name: "John Doe",
-					email: "johndoe@example.com",
-					password: "securepassword123"
-				};
-			
-				try {
-					const response = await fetch('https://congenial-rotary-phone-9wjqr6xjqj4fxwqx-3001.app.github.dev/api/register', {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify(userData),
-					});
-			
-					const result = await response.json();
-					if (response.ok) {
-						console.log("Usuario creado exitosamente:", result);
-					} else {
-						console.error("Error:", result.msg);
-					}
-				} catch (error) {
-					console.error("Request failed:", error);
-				}
-			},
-			getMessage: async () => {
+			login: async (email,password) => {
 				try{
 					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
+					const response = await fetch(process.env.BACKEND_URL + "/api/login",{
+                         method: "POST",
+						 headers: {
+							"Content-Type": "application/json"
+						 },
+						 body: JSON.stringify({
+							email: email,
+							password: password
+						 })
+						
+					
+					})
+
+                    if(!response.ok){
+						throw new Error("Failed to login")
+					}
+					const data = await response.json()
+
+					localStorage.setItem("accessToken",data.access_token)
+
+					console.log("user:" ,data)
+					// setStore({ message: data.message })
 					// don't forget to return something, that is how the async resolves
 					return data;
+				}catch(error){
+					console.log("Error loading message from backend", error)
+				}
+			},
+			logout: () => {
+				localStorage.removeItem("accessToken");
+				setStore({ user: null });
+			},
+			register: async (first_name,last_name,birth_date,email,password) => {
+				try{
+					// fetching data from the backend
+					const response = await fetch(process.env.BACKEND_URL + "/api/register",{
+                         method: "POST",
+						 headers: {
+							"Content-Type": "application/json"
+						 },
+						 body: JSON.stringify({
+							first_name: first_name,
+							last_name: last_name,
+							birth_date:birth_date,
+							email: email,
+							password: password
+						 })
+					
+					});
+
+                    if(!response.ok){
+						throw new Error("Failed to login")
+					}
+					const data = await response.json()
+
+					localStorage.setItem("accessToken",data.access_token)
+
+					console.log("User registered successfully:", data);
+					return data;
+					
 				}catch(error){
 					console.log("Error loading message from backend", error)
 				}

@@ -1,0 +1,62 @@
+/* From Uiverse.io by alexmaracinaru */ 
+.card-profile {
+  width: 400px;
+  height: 464px;
+  background: #3405a3;
+  border-radius: 15px;
+  box-shadow: 1px 5px 60px 0px #100a886b;
+ }
+ 
+ .card-prifile .card-border-top-profile {
+  width: 60%;
+  height: 3%;
+  background: #6b64f3;
+  margin: auto;
+  border-radius: 0px 0px 15px 15px;
+ }
+ 
+ .card-profile span {
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
+ }
+ 
+ .card-profile .job-profile {
+  font-weight: 400;
+  color: white;
+  display: block;
+  text-align: center;
+  padding-top: 3px;
+  font-size: 12px;
+ }
+ 
+ .card-profile .img-profile {
+  width: 300px;
+  height: 300px;
+  background: #6b64f3;
+  border-radius: 15px;
+  margin: auto;
+  margin-top:50px ;
+  
+  
+ }
+ 
+ .card-profile button {
+  padding: 8px 25px;
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+  border: none;
+  margin-top: 30px;
+  background: #6b64f3;
+  color: white;
+  font-weight: 600;
+ }
+ 
+ .card-profile button:hover {
+  background: #534bf3;
+ }
+ 
