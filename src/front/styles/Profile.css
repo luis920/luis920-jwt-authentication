@@ -1,10 +1,14 @@
-/* From Uiverse.io by alexmaracinaru */ 
+
 .card-profile {
   width: 400px;
   height: 464px;
   background: #3405a3;
   border-radius: 15px;
   box-shadow: 1px 5px 60px 0px #100a886b;
+  position: absolute; 
+  top: 50%;             
+  left: 50%;            
+  transform: translate(-50%, -50%); 
  }
  
  .card-prifile .card-border-top-profile {
@@ -59,4 +63,11 @@
  .card-profile button:hover {
   background: #534bf3;
  }
- 
+ .btn-primary-logout{
+  border-radius: 20px;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  background-color: red;
+  color: azure;
+ }

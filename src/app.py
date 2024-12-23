@@ -11,6 +11,8 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
+from flask_bcrypt import Bcrypt
+
 
 # from models import Person
 
@@ -33,6 +35,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "aC0mplexS3cr3t!@#456"  
 jwt = JWTManager(app)
+
+#configuracion bycript
+bcrypt = Bcrypt(app)
+app.bcrypt = bcrypt
+#fin de configuracion bycript
 
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)

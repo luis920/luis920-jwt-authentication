@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/CreateAccount.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const CreateAccount = () => {
     const { store, actions } = useContext(Context);
@@ -34,8 +34,8 @@ export const CreateAccount = () => {
     
 
     return (
-           
-            
+           <div>
+             <Link to={"/"}><h1>Home</h1></Link>
             <form className="form" onSubmit={handleRegister}>
                 <h3>Create new user</h3>
                 <div className="name">
@@ -65,6 +65,8 @@ export const CreateAccount = () => {
                     /></span>
                 <input className="submit" type="submit" value="create account" />
             </form>
+           </div>
+           
          
              
           
