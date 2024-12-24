@@ -12,7 +12,7 @@ export const Profile = () => {
 
     useEffect(() => {
             actions.getUser()
-    }, [store.user]);
+    }, []);
 
 
     const randomNumber = Math.floor(Math.random() * 10) + 1;
@@ -35,9 +35,9 @@ export const Profile = () => {
                         <div className="img-profile">
                             <img src={`https://robohash.org/${randomNumber}`} alt="Profile" />
                         </div>
-                        <span>Name: </span>
-                        <span>Birthdate: </span>
-                        <span>Email: </span>
+                        <span>Name: {store.user.first_name} {store.user.last_name} </span>
+                        <span>Birthdate:{store.user.birth_date}</span>
+                        <span>Email: {store.user.email} </span>
                     </div>
                 </div>
                 

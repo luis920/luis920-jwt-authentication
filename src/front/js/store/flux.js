@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			user:null
+			user:{}
 			
 		},
 		actions: {
@@ -38,16 +38,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json()
 
 					localStorage.setItem("accessToken",data.access_token)
-
+					localStorage.setItem("user",JSON.stringify(data.user))
+                    setStore({user:data.user})
 					
 					return data;
 				}catch(error){
 					console.log("Error loading message from backend", error)
 				}
 			},
-			getUser: async (user_id) => {
+			getUser: async () => {
                 try {
-                    const response = await fetch(`${process.env.BACKEND_URL}/api/profile/user/${user_id}`, {
+                    const response = await fetch(`${process.env.BACKEND_URL}/api/profile/user`, {
                         method: "GET",
                         headers: {
                             "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
@@ -59,10 +60,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await response.json();
+					
 
                     setStore({ user: data });
 
                     return data;
+					
                 } catch (error) {
                     console.log("Error loading user data:", error);
                 }

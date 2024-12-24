@@ -35,7 +35,7 @@ export const CreateAccount = () => {
 
     return (
            <div>
-             <Link to={"/"}><h1>Home</h1></Link>
+             <button className="btn-home" onClick={() => navigate("/")} >HOME</button>
             <form className="form" onSubmit={handleRegister}>
                 <h3>Create new user</h3>
                 <div className="name">

@@ -1,3 +1,4 @@
+
 .name {
     display: flex;  
     gap: 1rem;  
@@ -99,5 +100,13 @@
   
   .span a {
     color: var(--clr);
+  }
+  .btn-home{
+    width: 150px;
+    height: 70px;
+    background-color: red;
+    border-radius: 20px;
+    margin: 10px;
+    color: #efefef;
   }
   

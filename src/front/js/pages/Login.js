@@ -25,10 +25,10 @@ export const Login = () => {
         try {
             const result = await actions.login( dataLogin.email, dataLogin.password);
             if (result ) {
-                navigate("/profile/user/<int:user_id");
+                navigate(`/profile/user`);
             }
         } catch (error) {
-            console.error("Error registering user", error);
+            console.error("Error", error);
         }
     };
     
@@ -36,7 +36,7 @@ export const Login = () => {
     return (
            
             <div>
-                <Link to={"/"}><h1>Home</h1></Link>
+                 <button className="btn-home" onClick={() => navigate("/")} >HOME</button>
                 <form className="form" onSubmit={handleLogin}>
                 <h1>Log in</h1>
                 <span className="input-span">
