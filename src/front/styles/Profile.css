@@ -43,7 +43,7 @@
   background: #6b64f3;
   border-radius: 15px;
   margin: auto;
-  margin-top:50px ;
+  margin-top:20px ;
   
   
  }
@@ -70,4 +70,9 @@
   margin: 10px;
   background-color: red;
   color: azure;
+ }
+ .name-profile{
+  color: aliceblue;
+  margin-top: 10px;
+  text-align: center;
  }

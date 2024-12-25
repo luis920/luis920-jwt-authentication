@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import "../../styles/Profile.css";
 import { useNavigate,Link } from "react-router-dom";
+import { Navbar } from "../component/navbar";
 
 export const Login = () => {
     const { store, actions } = useContext(Context);
@@ -34,9 +35,9 @@ export const Login = () => {
     
 
     return (
-           
+           <div>
+            <Navbar/>
             <div>
-                 <button className="btn-home" onClick={() => navigate("/")} >HOME</button>
                 <form className="form" onSubmit={handleLogin}>
                 <h1>Log in</h1>
                 <span className="input-span">
@@ -51,6 +52,8 @@ export const Login = () => {
                 <span className="span">Don't have an account?  <a href="/createAccount">create an account</a></span>
             </form>
             </div>
+           </div>
+            
             
           
     );

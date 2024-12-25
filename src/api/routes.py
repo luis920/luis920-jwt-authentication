@@ -87,16 +87,6 @@ def protected():
     ), 200
 
 
-
-
-
-
-    
-
-
-
-    
-
 # crear un nuevo usuario
 @api.route('/register', methods=['POST'])
 def register():
