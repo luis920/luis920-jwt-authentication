@@ -25,6 +25,7 @@ export const Profile = () => {
                     <h1 className="text-center"> My Profile</h1>
                     <div className="card-profile">
                     <h1 className='name-profile'> {store.user.first_name} {store.user.last_name} </h1>
+                    
                         <div className="card-border-top-profile"></div>
                         <div className="img-profile">
                             <img src={`https://robohash.org/${randomNumber}`} alt="Profile" />

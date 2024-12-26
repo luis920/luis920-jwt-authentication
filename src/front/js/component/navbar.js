@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 
 
+
 export const Navbar = () => {
 	const navigate = useNavigate()
 	const { store, actions } = useContext(Context);
@@ -15,11 +16,11 @@ export const Navbar = () => {
     };
 	
 	return (
-		<nav className="navbar navbar-light bg-light">
+		<nav className="navbar " >
 			<div className="container">
 				{location.pathname === "/profile/user" ? (
 				  
-				   <button className="btn" onClick={handleLogout}>
+				   <button className="btn btn-danger"   onClick={handleLogout}>
 						Logout
 					</button>
 		
@@ -38,7 +39,7 @@ export const Navbar = () => {
 						)}
 						{(location.pathname === "/login" || location.pathname === "/createaccount") && (
 							< Link to="/">
-								<button className="btn">Home</button>
+								<i className="fa-solid fa-house fa-3x "></i>
 							</Link>
 						)}
 
