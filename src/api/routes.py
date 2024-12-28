@@ -74,8 +74,6 @@ def protected():
 
     current_user = get_jwt_identity() 
 
-    if current_user != current_user:
-       return jsonify({"msg": "Unauthorized access"}), 403
 
     user = User.query.filter_by(email=current_user).first()
 
