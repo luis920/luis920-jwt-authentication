@@ -1,7 +1,7 @@
 {
 	"name": "react-hello-webapp",
 	"engines": {
-		"node": "16.x"
+		"node": "22.x"
 	},
 	"version": "1.0.1",
 	"description": "",
@@ -73,6 +73,7 @@
 		]
 	},
 	"dependencies": {
+		"22": "^0.0.0",
 		"@fortawesome/fontawesome-svg-core": "^6.7.2",
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
 		"@fortawesome/react-fontawesome": "^0.2.2",
